@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Carte - Del Castello</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Roboto:wght@300;400;500&family=Playball&display=swap" rel="stylesheet">
+    <style>
+        /* --- Styles Généraux --- */
+        html { 
+            scroll-behavior: smooth; 
+            scroll-padding-top: 100px; 
+        }
+
+        body {
+            font-family: 'Roboto', Helvetica, Arial, sans-serif;
+            margin: 0;
+            color: #444; 
+            background-color: #fafaf7; 
+            background-image: 
+                radial-gradient(circle at 15% 30%, rgba(200, 180, 150, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 70%, rgba(200, 180, 150, 0.03) 0%, transparent 40%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; color: #222; margin-top: 0; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        img { max-width: 100%; height: auto; }
+
+        .container {
+            width: 85%;
+            margin: 0 auto;
+            max-width: 1000px; 
+            position: relative;
+            z-index: 2;
+        }
+
+        :root {
+            --primary-color: #c8a06e; 
+            --primary-hover: #b89060;
+            --accent-green: #385848; 
+            --text-color: #444;
+            --border-color: #d8dcd0;
+            --phone-color: #385848;
+            --section-bg-dark: #f0f0e8;
+        }
+
+        /* --- Header --- */
+        .main-header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 250, 247, 0.95); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-header { height: 50px; width: auto; filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.2)); }
+        .main-nav ul { display: flex; gap: 25px; }
+        .main-nav a {
+            font-size: 1.05em; font-weight: 500; color: var(--text-color);
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 3px; border-bottom: 2px solid transparent;
+        }
+        .main-nav a:hover, .main-nav a.active { color: var(--primary-color); border-bottom-color: var(--primary-color); }
+
+        /* --- Hero Menu --- */
+        #menu-hero {
+            padding: 80px 0 60px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(to bottom, rgba(250, 250, 247, 0) 0%, rgba(240, 240, 232, 1) 100%);
+        }
+        .menu-hero-title { font-size: 3.5em; color: var(--accent-green); margin: 0 0 10px 0; }
+        .menu-hero-subtitle { font-family: 'Playball', cursive; font-size: 1.8em; color: var(--primary-color); margin: 0; }
+
+        /* --- Menu Nav (Liens internes) --- */
+        .internal-menu-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 40px 0;
+        }
+        .internal-menu-nav a {
+            padding: 10px 20px;
+            border: 1px solid var(--primary-color);
+            border-radius: 30px;
+            font-weight: 500;
+            color: var(--accent-green);
+            transition: all 0.3s ease;
+        }
+        .internal-menu-nav a:hover { background-color: var(--primary-color); color: #fff; }
+
+        /* --- Encarts Formules --- */
+        .formules-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .formule-banner {
+            background: #fff;
+            border: 2px solid var(--primary-color);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+        .formule-banner h4 { font-size: 1.6em; color: var(--accent-green); margin-bottom: 10px; }
+        .formule-banner .price { font-size: 1.8em; font-weight: bold; color: var(--primary-color); margin-bottom: 10px; display: block; }
+        .formule-banner p { color: #555; margin: 0; font-size: 0.95em; line-height: 1.5; }
+
+        .takeaway-banner {
+            background: var(--accent-green);
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+            font-size: 1.2em;
+            font-weight: 500;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- Layout du Menu --- */
+        .menu-section {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 50px 60px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .menu-section-title {
+            font-size: 3em;
+            text-align: center;
+            color: var(--accent-green);
+            margin-top: 0;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .menu-subsection-title {
+            font-size: 2em;
+            color: var(--text-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .menu-list { display: flex; flex-direction: column; gap: 20px; }
+        .menu-list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px; }
+
+        .menu-item { display: flex; flex-direction: column; }
+
+        .item-line {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .item-name {
+            font-family: 'Playball', cursive;
+            font-size: 1.5em;
+            color: #222;
+            white-space: nowrap;
+        }
+
+        .item-dots {
+            flex-grow: 1;
+            border-bottom: 2px dotted #ccc;
+            margin: 0 15px;
+            opacity: 0.6;
+            position: relative;
+            top: -6px;
+        }
+
+        .item-price {
+            font-weight: 600;
+            font-size: 1.2em;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+
+        .item-desc {
+            font-size: 0.95em;
+            color: #777;
+            margin-top: 5px;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .menu-note {
+            text-align: center;
+            font-size: 0.95em;
+            color: #555;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color);
+            font-weight: 500;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--section-bg-dark);
+            color: #777;
+            padding: 60px 0 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+        }
+
+        .logo-footer { height: 80px; margin-bottom: 20px; filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.1)); }
+        
+        .legal-info { font-size: 0.85em; color: #888; margin-top: 30px; line-height: 1.6; display: block; }
+        .legal-info p { margin: 5px auto; max-width: fit-content; }
+        .legal-info strong { color: #666; }
+
+        .copyright { font-size: 0.9em; color: #aaa; margin-top: 20px; }
+
+        /* --- Bouton Appel --- */
+        .whatsapp-floating {
+            position: fixed; bottom: 30px; right: 30px;
+            background-color: var(--phone-color);
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(56, 88, 72, 0.3);
+            z-index: 1000; transition: transform 0.3s ease;
+        }
+        .whatsapp-floating:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(56, 88, 72, 0.5); }
+        .whatsapp-floating svg { width: 30px; fill: white; }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 900px) {
+            .menu-list-grid { grid-template-columns: 1fr; }
+            .formules-container { grid-template-columns: 1fr; gap: 20px; }
+        }
+
+        @media (max-width: 768px) {
+            .menu-section { padding: 30px 20px; }
+            .menu-section-title { font-size: 2.2em; }
+            .item-line { flex-direction: column; align-items: flex-start; }
+            .item-dots { display: none; }
+            .item-price { margin-top: 5px; font-size: 1.1em; }
+            .item-name { white-space: normal; line-height: 1.2; }
+            .header-container { flex-direction: column; gap: 15px; }
+            .main-nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .internal-menu-nav { gap: 10px; }
+            .internal-menu-nav a { font-size: 0.9em; padding: 8px 15px; }
+            .whatsapp-floating { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+            .whatsapp-floating svg { width: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html">
+                <img src="photos/logo.png" alt="Del Castello Logo" class="logo-header">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#hero">Le Restaurant</a></li>
+                    <li><a href="menu.html" class="active">La Carte</a></li>
+                    <li><a href="index.html#galerie">Galerie</a></li>
+                    <li><a href="index.html#avis-google">Avis</a></li>
+                    <li><a href="index.html#infos-pratiques">Horaires & Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="menu-hero">
+            <div class="container">
+                <h1 class="menu-hero-title">Notre Carte Complète</h1>
+                <p class="menu-hero-subtitle">Authenticité, Fraîcheur & Fait Maison</p>
+                
+                <div class="internal-menu-nav">
+                    <a href="#antipasti">Antipasti</a>
+                    <a href="#pates">Pâtes Fraîches</a>
+                    <a href="#pizzas">Pizzas</a>
+                    <a href="#viandes">Viandes & Poissons</a>
+                    <a href="#boissons">Boissons</a>
+                </div>
+
+                <div class="formules-container" id="dynamic-formules">
+                    <div style="text-align: center; grid-column: 1 / -1;">
+                        <p>Chargement des formules...</p>
+                    </div>
+                </div>
+                
+                <div class="takeaway-banner">
+                    🍕 Bénéficiez de -10% sur toutes nos pizzas à emporter !<br>
+                    <span style="font-size: 0.85em; font-weight: normal;">🥡 (Nos pâtes fraîches sont également disponibles à emporter)</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="container" id="dynamic-menu-container">
+            <div style="text-align: center; padding: 50px;">
+                <p>Chargement de la carte en cours...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <img src="photos/logo.png" alt="Del Castello Logo" class="logo-footer">
+            
+            <div class="legal-info">
+                <p><strong>Del Castello SRL</strong></p>
+                <p>Grand'Route 462, 1428 Braine-l'Alleud</p>
+                <p>Numéro d'entreprise / TVA : BE 0471.409.112</p>
+                <p>Email : <a href="mailto:del.c.lillois@gmail.com">del.c.lillois@gmail.com</a> | Tél : 02 385 33 85</p>
+                <p style="margin-top: 15px; font-size: 0.9em; font-style: italic;">Ce site est une vitrine. Les données collectées via email ou téléphone sont utilisées uniquement pour gérer vos commandes et réservations conformément au RGPD.</p>
+            </div>
+
+            <p class="copyright">© 2026 Del Castello SRL. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <a href="tel:+3223853385" class="whatsapp-floating" aria-label="Appeler le restaurant">
+        <svg viewBox="0 0 24 24" fill="white" width="24px" height="24px"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const jsonUrl = 'data/menu.json?t=' + new Date().getTime(); // Évite le cache
+            
+            fetch(jsonUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erreur réseau : ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    renderFormules(data.formules);
+                    renderCategories(data.categories);
+                })
+                .catch(error => {
+                    console.error('Erreur lors du chargement du menu:', error);
+                    document.getElementById('dynamic-menu-container').innerHTML = '<p style="text-align:center; color:red; padding: 50px;">Erreur lors du chargement du menu. Veuillez réessayer plus tard.</p>';
+                    document.getElementById('dynamic-formules').innerHTML = '';
+                });
+        });
+
+        function renderFormules(formules) {
+            const container = document.getElementById('dynamic-formules');
+            if (!container) return;
+            
+            if (!formules || formules.length === 0) {
+                container.style.display = 'none';
+                return;
+            }
+            
+            let html = '';
+            formules.forEach(formule => {
+                html += `
+                    <div class="formule-banner">
+                        <h4>${formule.title}</h4>
+                `;
+                
+                if (formule.date) {
+                    html += `<div style="font-family: 'Roboto', sans-serif; font-size: 1.1em; color: #777; margin-top: -5px; margin-bottom: 15px; font-style: italic;">${formule.date}</div>`;
+                }
+
+                html += `
+                        <span class="price">${formule.price}</span>
+                        <p>${formule.description}</p>
+                `;
+
+                let menuHtml = '';
+                
+                const renderCourse = (title, items) => {
+                    if (items && items.length > 0) {
+                        menuHtml += `<h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8em; color: var(--text-color); font-weight: 600; text-align: center; margin: 25px 0 15px 0;">${title}</h3>`;
+                        items.forEach((item, index) => {
+                            menuHtml += `<div style="text-align: center; margin-bottom: 10px;">`;
+                            menuHtml += `<span style="font-family: 'Playball', cursive; font-size: 1.4em; color: #222;">${item.title}</span>`;
+                            if (item.description) {
+                                menuHtml += `<br><span style="font-size: 0.95em; color: #777; font-style: italic; line-height: 1.5;">${item.description}</span>`;
+                            }
+                            menuHtml += `</div>`;
+                            
+                            if (index < items.length - 1) {
+                                menuHtml += `<div style="text-align: center; font-family: 'Roboto', sans-serif; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-color); margin: 5px 0;">- ou -</div>`;
+                            }
+                        });
+                    }
+                };
+
+                renderCourse('Entrées', formule.entrees);
+                renderCourse('Plats', formule.plats);
+                renderCourse('Desserts', formule.desserts);
+
+                if (menuHtml !== '') {
+                    html += `<div style="margin-top: 20px; padding-top: 5px; border-top: 1px dashed var(--border-color);">
+                                ${menuHtml}
+                             </div>`;
+                }
+
+                html += `</div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderCategories(categories) {
+            const container = document.getElementById('dynamic-menu-container');
+            if (!container || !categories) return;
+
+            let html = '';
+            categories.forEach(category => {
+                html += `
+                    <section id="${category.id}" class="menu-section">
+                        <h2 class="menu-section-title">${category.title}</h2>
+                `;
+
+                if (category.subcategories && category.subcategories.length > 0) {
+                    category.subcategories.forEach(sub => {
+                        if (sub.title) {
+                            html += `<h3 class="menu-subsection-title">${sub.title}</h3>`;
+                        }
+                        
+                        html += `<div class="menu-list">`;
+                        
+                        if (sub.items && sub.items.length > 0) {
+                            sub.items.forEach(item => {
+                                html += `
+                                    <div class="menu-item">
+                                        <div class="item-line">
+                                            <span class="item-name">${item.title}</span>
+                                            <div class="item-dots"></div>
+                                            <span class="item-price">${item.price}</span>
+                                        </div>
+                                `;
+                                if (item.description) {
+                                    html += `<div class="item-desc">${item.description}</div>`;
+                                }
+                                html += `</div>`;
+                            });
+                        }
+                        
+                        html += `</div>`;
+                    });
+                }
+
+                if (category.note) {
+                    html += `<div class="menu-note">${category.note.replace(/\\n/g, '<br>')}</div>`;
+                }
+
+                html += `</section>`;
+            });
+
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Del Castello - Cuisine Italienne & Française</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Roboto:wght@300;400;500&family=Playball&display=swap" rel="stylesheet">
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <style>
+        /* --- Styles Généraux --- */
+        html { 
+            scroll-behavior: smooth; 
+            scroll-padding-top: 100px; 
+        }
+
+        body {
+            font-family: 'Roboto', Helvetica, Arial, sans-serif;
+            margin: 0;
+            color: #444; 
+            background-color: #fafaf7; 
+            background-image: 
+                radial-gradient(circle at 15% 30%, rgba(200, 180, 150, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 70%, rgba(200, 180, 150, 0.03) 0%, transparent 40%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif; 
+            font-weight: 600;
+            color: #222; 
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        img { max-width: 100%; height: auto; }
+
+        .container {
+            width: 85%;
+            margin: 0 auto;
+            max-width: 1200px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- Couleurs & Variables --- */
+        :root {
+            --primary-color: #c8a06e; 
+            --primary-hover: #b89060;
+            --accent-green: #385848; 
+            --accent-green-hover: #2a443a;
+            --phone-color: #385848; 
+            --text-color: #444;
+            --bg-color: #fafaf7;
+            --section-bg-dark: #f0f0e8; 
+            --border-color: #d8dcd0;
+        }
+
+        /* --- Animations CSS --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- Header --- */
+        .main-header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 250, 247, 0.95); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-header {
+            height: 50px;
+            width: auto;
+            filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.2));
+        }
+
+        .main-nav ul { display: flex; gap: 25px; }
+
+        .main-nav a {
+            font-size: 1.05em;
+            font-weight: 500;
+            color: var(--text-color);
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 3px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            padding: 120px 0 100px 0;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(to bottom, rgba(250, 250, 247, 0) 0%, rgba(240, 240, 232, 1) 100%);
+        }
+
+        .hero-logo {
+            max-width: 400px;
+            width: 85%;
+            height: auto;
+            margin-bottom: 40px;
+            filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.1));
+        }
+
+        .hero-title {
+            font-size: 3.2em;
+            margin-bottom: 25px;
+            color: var(--accent-green); 
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.2;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* --- Sections Communes --- */
+        section { padding: 120px 0; position: relative; }
+
+        .section-title {
+            font-size: 2.8em;
+            text-align: center;
+            margin: 0 auto 60px auto;
+            color: var(--accent-green);
+            position: relative;
+            display: block;
+            width: fit-content;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(200, 160, 110, 0.4);
+        }
+
+        .section-subtitle {
+            font-size: 2em;
+            text-align: center;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        /* --- Engagement Qualité --- */
+        .intro-text {
+            max-width: 850px;
+            margin: 0 auto 70px auto;
+            line-height: 1.9;
+            font-size: 1.15em;
+            color: #555;
+            text-align: center;
+        }
+
+        .piliers-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+        }
+
+        .pilier {
+            flex: 1;
+            padding: 40px 30px;
+            background: #fff;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid var(--border-color);
+            border-top: 2px solid rgba(200, 160, 110, 0.6);
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .pilier:hover {
+            transform: translateY(-5px);
+            border-color: rgba(200, 160, 110, 0.8);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .pilier-icon {
+            font-size: 3.5em;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .pilier:hover .pilier-icon { transform: scale(1.1) rotate(3deg); }
+
+        .pilier-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            color: #222;
+        }
+
+        .pilier p { color: #666; line-height: 1.7; }
+
+        .btn-action {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.3em;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(200, 160, 110, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-3px) scale(1.02);
+            background-color: var(--primary-hover);
+            box-shadow: 0 8px 25px rgba(200, 160, 110, 0.3);
+        }
+
+        /* --- Section Menu Teaser & Formules --- */
+        #menu-teaser {
+            background-color: var(--section-bg-dark);
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .teaser-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .menu-teaser-box {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-teaser-box h3 {
+            font-size: 2.2em;
+            color: var(--accent-green);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .menu-teaser-box p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .teaser-icons {
+            font-size: 2.5em;
+            letter-spacing: 10px;
+            margin-bottom: 20px;
+        }
+
+        .formules-box { border: 1px solid var(--primary-color); }
+
+        .formule-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--border-color);
+            width: 100%;
+            text-align: left;
+        }
+        .formule-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        
+        .formule-title {
+            font-family: 'Playball', cursive;
+            font-size: 1.6em;
+            color: var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .formule-price { font-weight: bold; font-family: 'Roboto', sans-serif; font-size: 1.1em;}
+        .formule-desc { font-size: 0.95em; color: #666; margin-top: 5px; }
+
+        /* --- Galerie Multi-Carrousels --- */
+        #galerie { background-color: var(--bg-color); }
+
+        .carousel-wrapper { 
+            position: relative; 
+            max-width: 900px; 
+            margin: 0 auto 80px auto; 
+        }
+        
+        .carousel-container { 
+            overflow: hidden; 
+            width: 100%; 
+            border-radius: 20px; 
+            padding: 15px 10px 25px 10px; 
+            box-sizing: border-box; 
+        }
+        
+        .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .carousel-slide { min-width: 100%; box-sizing: border-box; padding: 0 10px; }
+
+        .realisation-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+            height: 100%; 
+            box-sizing: border-box;
+        }
+
+        .realisation-images { display: flex; gap: 15px; }
+        .img-box {
+            flex: 1;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 300px;
+            border: 1px solid var(--border-color);
+            background-color: #f5f5f5; 
+        }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(200, 160, 110, 0.9);
+            color: #fff;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .carousel-btn:hover { background: rgba(200, 160, 110, 1); transform: translateY(-50%) scale(1.1); }
+        .prev-btn { left: -20px; }
+        .next-btn { right: -20px; }
+
+        .carousel-dots { text-align: center; margin-top: 10px; }
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 0 6px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .dot:hover { transform: scale(1.2); }
+        .dot.active { background: var(--primary-color); transform: scale(1.2); }
+
+        /* --- Section Avis Google --- */
+        #avis-google {
+            background-color: var(--section-bg-dark);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .avis-slide-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            height: 100%;
+        }
+
+        .avis-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .avis-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .avis-author-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .avis-author-name {
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+            font-size: 1em;
+        }
+
+        .avis-rating {
+            color: #fbbc04; /* Jaune Google */
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .avis-text {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin: 0;
+            flex-grow: 1; 
+        }
+
+        .google-link-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .google-link-container a {
+            color: var(--primary-color);
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* --- Infos Pratiques & Horaires --- */
+        #infos-pratiques {
+            background-color: var(--bg-color);
+            padding: 80px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .infos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        .info-card h4 {
+            font-size: 1.8em;
+            color: var(--accent-green);
+            margin-top: 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .horaires-disclaimer {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .horaires-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .horaires-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555;
+        }
+        .horaires-list li:last-child { border-bottom: none; }
+        .horaires-day { font-weight: 500; color: #333; }
+        .horaires-closed { color: #d9534f; font-weight: bold; }
+
+        .contact-details p {
+            margin: 15px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--section-bg-dark);
+            color: #777;
+            padding: 60px 0 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .logo-footer {
+            height: 100px;
+            margin-bottom: 30px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.1));
+        }
+
+        .footer-phrase {
+            font-family: 'Playball', cursive;
+            font-weight: 400; 
+            margin-bottom: 40px;
+            font-size: 1.6em;
+            color: var(--accent-green);
+        }
+
+        .legal-info { font-size: 0.85em; color: #888; margin-top: 30px; line-height: 1.6; display: block; }
+        .legal-info p { margin: 5px auto; max-width: fit-content; }
+        .legal-info strong { color: #666; }
+        .copyright { font-size: 0.9em; color: #aaa; margin-top: 30px; }
+
+        /* --- Bouton Appel Flottant --- */
+        .whatsapp-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--phone-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(56, 88, 72, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whatsapp-floating:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(56, 88, 72, 0.5);
+        }
+
+        .whatsapp-floating svg { width: 30px; fill: white; }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 900px) {
+            .header-container { flex-direction: column; gap: 15px; }
+            .main-nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .pilier { flex: none; width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            #hero { padding: 140px 0 80px 0; }
+            .hero-logo { max-width: 250px; }
+            .hero-title { font-size: 2.2em; }
+            .piliers-container, .teaser-grid, .infos-grid { grid-template-columns: 1fr; gap: 20px; }
+            .realisation-images { flex-direction: column; gap: 10px; }
+            .img-box { height: 200px; }
+            .section-title { font-size: 2.2em; }
+            .btn-action { padding: 15px 30px; font-size: 1.1em; width: 100%; box-sizing: border-box; justify-content: center; }
+            .carousel-btn { width: 35px; height: 35px; font-size: 1.2em; }
+            .prev-btn { left: -10px; }
+            .next-btn { right: -10px; }
+            .whatsapp-floating { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+            .whatsapp-floating svg { width: 25px; }
+            .menu-teaser-box, .info-card { padding: 30px 20px; }
+            .formule-title { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .carousel-wrapper { margin-bottom: 50px; }
+            .avis-slide-grid { grid-template-columns: 1fr; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html">
+                <img src="photos/logo.png" alt="Del Castello Logo" class="logo-header">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#hero">Le Restaurant</a></li>
+                    <li><a href="menu.html">La Carte</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#avis-google">Avis</a></li>
+                    <li><a href="#infos-pratiques">Horaires & Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container animate-on-scroll">
+                <img src="photos/logo.png" alt="Del Castello Logo" class="hero-logo">
+                <h1 class="hero-title">Del Castello : Une Passion pour le Goût Authentique.</h1>
+            </div>
+        </section>
+
+        <section id="concept">
+            <div class="container">
+                <h3 class="section-title animate-on-scroll">Notre Engagement</h3>
+                <p class="intro-text animate-on-scroll">Chez Del Castello, nous croyons qu'une excellente cuisine commence par les meilleurs ingrédients. C'est pourquoi nous mettons l'accent sur les produits frais, de saison, et préparés avec soin par notre équipe.</p>
+
+                <div class="piliers-container">
+                    <div class="pilier animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="pilier-icon">🥬</div>
+                        <div class="pilier-title">Ingrédients Frais</div>
+                        <p>Une sélection rigoureuse pour vous garantir saveur et fraîcheur dans chaque plat.</p>
+                    </div>
+                    <div class="pilier animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="pilier-icon">👨‍🍳</div>
+                        <div class="pilier-title">Cuisine Maison</div>
+                        <p>Préparée quotidiennement sur place pour un goût authentique et irréprochable.</p>
+                    </div>
+                    <div class="pilier animate-on-scroll" style="transition-delay: 0.3s;">
+                        <div class="pilier-icon">❤️</div>
+                        <div class="pilier-title">Passion pour le Goût</div>
+                        <p>Nous ne faisons aucun compromis sur la qualité pour votre plaisir gustatif.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu-teaser">
+            <div class="container">
+                <h3 class="section-title animate-on-scroll" style="margin-top: 0;">Découvrez notre Cuisine</h3>
+                
+                <div class="teaser-grid">
+                    <div class="menu-teaser-box animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="teaser-icons">🍝 🍕</div>
+                        <h3>La Carte Complète</h3>
+                        <p>Antipasti authentiques, Pâtes fraîches maison et Pizzas traditionnelles. Laissez-vous tenter par notre sélection de plats cuisinés avec amour et des produits de première qualité.</p>
+                        
+                        <p style="color: var(--accent-green); font-weight: 500; font-size: 1.1em; margin-bottom: 25px;">
+                            🥡 Service Traiteur : -10% sur nos pizzas à emporter. <br>Nos pâtes sont également disponibles à l'emporté !
+                        </p>
+
+                        <a href="menu.html" class="btn-action">Consulter notre carte</a>
+                    </div>
+
+                    <div class="menu-teaser-box formules-box animate-on-scroll" style="transition-delay: 0.2s;">
+                        <h3>Nos Formules</h3>
+                        
+                        <div class="formule-item">
+                            <div class="formule-title">Menu Lunch de la semaine <span class="formule-price">30 €</span></div>
+                            <div class="formule-desc">Entrée, Plat, Dessert. <br><em>Disponible les mercredi, jeudi et vendredi midi.</em></div>
+                        </div>
+
+                        <div class="formule-item">
+                            <div class="formule-title">Menu du Dimanche <span class="formule-price">48 €</span></div>
+                            <div class="formule-desc">Entrée, Plat, Dessert au choix selon la sélection du chef.<br><em>Disponible le dimanche midi et soir.</em></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galerie">
+            <div class="container">
+                <h3 class="section-title animate-on-scroll">L'Établissement</h3>
+                
+                <div class="carousel-wrapper animate-on-scroll">
+                    <button class="carousel-btn prev-btn" aria-label="Précédent">❮</button>
+                    <div class="carousel-container">
+                        <div class="carousel-track">
+                            <div class="carousel-slide">
+                                <div class="realisation-card">
+                                    <div class="realisation-images">
+                                        <div class="img-box"><img src="photos/interieur 1.jpeg" alt="Intérieur 1" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                        <div class="img-box"><img src="photos/interieur 2.jpeg" alt="Intérieur 2" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="realisation-card">
+                                    <div class="realisation-images">
+                                        <div class="img-box"><img src="photos/interieur 3.jpeg" alt="Intérieur 3" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                        <div class="img-box"><img src="photos/interieur 4.jpeg" alt="Intérieur 4" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="realisation-card">
+                                    <div class="realisation-images">
+                                        <div class="img-box"><img src="photos/interieur 5.jpeg" alt="Intérieur 5" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                        <div class="img-box"><img src="photos/interieur 6.jpeg" alt="Intérieur 6" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn next-btn" aria-label="Suivant">❯</button>
+                    <div class="carousel-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                </div>
+
+                <h3 class="section-title animate-on-scroll" style="margin-top: 40px;">Nos Plats & Spécialités</h3>
+
+                <div class="carousel-wrapper animate-on-scroll">
+                    <button class="carousel-btn prev-btn" aria-label="Précédent">❮</button>
+                    <div class="carousel-container">
+                        <div class="carousel-track">
+                            <div class="carousel-slide">
+                                <div class="realisation-card">
+                                    <div class="realisation-images">
+                                        <div class="img-box"><img src="photos/pizza 1.jpeg" alt="Pizza 1" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                        <div class="img-box"><img src="photos/pizza 2.jpeg" alt="Pizza 2" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="realisation-card">
+                                    <div class="realisation-images">
+                                        <div class="img-box"><img src="photos/pizza 3.jpeg" alt="Pizza 3" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                        <div class="img-box"><img src="photos/croquette.jpeg" alt="Croquette" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="realisation-card">
+                                    <div class="realisation-images">
+                                        <div class="img-box"><img src="photos/plat 1.jpeg" alt="Plat 1" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                        <div class="img-box"><img src="photos/plat 2.jpeg" alt="Plat 2" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="realisation-card">
+                                    <div class="realisation-images">
+                                        <div class="img-box"><img src="photos/dessert 1.jpeg" alt="Dessert 1" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                        <div class="img-box"><img src="photos/dessert 2.jpeg" alt="Dessert 2" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="realisation-card">
+                                    <div class="realisation-images">
+                                        <div class="img-box"><img src="photos/dessert 3.jpeg" alt="Dessert 3" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                        <div class="img-box"><img src="photos/dessert 4.jpeg" alt="Dessert 4" onerror="this.src=''; this.alt='Image introuvable'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn next-btn" aria-label="Suivant">❯</button>
+                    <div class="carousel-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                        <span class="dot" data-slide="3"></span>
+                        <span class="dot" data-slide="4"></span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="avis-google">
+            <div class="container">
+                <h3 class="section-title animate-on-scroll">Avis de nos clients</h3>
+                
+                <div class="carousel-wrapper animate-on-scroll" style="margin-bottom: 20px;">
+                    <button class="carousel-btn prev-btn" aria-label="Précédent">❮</button>
+                    <div class="carousel-container">
+                        <div class="carousel-track">
+                            
+                            <div class="carousel-slide">
+                                <div class="avis-slide-grid">
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #4285F4;">S</div>
+                                            <p class="avis-author-name">Sophie Laurent</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★★</div>
+                                        <p class="avis-text">"Très belle découverte à Lillois ! Les pâtes fraîches sont un vrai délice (mention spéciale pour les tagliatelles à la truffe). Le cadre est chaleureux et le personnel très accueillant. Nous reviendrons sans hésiter."</p>
+                                    </div>
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #DB4437;">M</div>
+                                            <p class="avis-author-name">Marc Dubois</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★★</div>
+                                        <p class="avis-text">"Les meilleures pizzas de la région, tout simplement. La pâte est légère, les ingrédients sont frais et ça se goûte tout de suite. Le fait qu'ils fassent -10% sur l'emporté est un vrai plus !"</p>
+                                    </div>
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #F4B400;">N</div>
+                                            <p class="avis-author-name">Nathalie V.</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★☆</div>
+                                        <p class="avis-text">"Superbe menu lunch en semaine à 30€. Les portions sont généreuses et le rapport qualité/prix est imbattable. Petit bémol pour le parking parfois compliqué, mais la qualité dans l'assiette fait vite oublier ce détail."</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <div class="avis-slide-grid">
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #0F9D58;">T</div>
+                                            <p class="avis-author-name">Thomas et Sarah</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★★</div>
+                                        <p class="avis-text">"Un vrai restaurant italien comme on les aime. L'escalope Del Castello gratinée à la Scamorza est incroyable. Très belle carte des vins pour accompagner tout ça. Pensez à réserver !"</p>
+                                    </div>
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #4285F4;">J</div>
+                                            <p class="avis-author-name">Julie Peeters</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★★</div>
+                                        <p class="avis-text">"Nous avons testé la planche Del Castello en entrée : une merveille ! Charcuteries au top et les petites croquettes à la truffe sont à tomber. La viande qui a suivi était cuite à la perfection."</p>
+                                    </div>
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #DB4437;">A</div>
+                                            <p class="avis-author-name">Antoine M.</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★★</div>
+                                        <p class="avis-text">"Service impeccable et rapide, même avec une salle pleine. La vraie carbonara sans crème (enfin !) est authentique et savoureuse. Une adresse incontournable sur Braine-l'Alleud."</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <div class="avis-slide-grid">
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #F4B400;">C</div>
+                                            <p class="avis-author-name">Chloé D.</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★☆</div>
+                                        <p class="avis-text">"Cadre très sympa, surtout en été avec la terrasse. Les cocktails sont super bien dosés (très bon Moscow Mule). Les pizzas sont excellentes, de vrais produits frais dessus."</p>
+                                    </div>
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #0F9D58;">F</div>
+                                            <p class="avis-author-name">Famille Mertens</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★★</div>
+                                        <p class="avis-text">"Nous sommes venus un dimanche midi en famille. Le menu du dimanche à 48€ est fantastique, des plats raffinés et très bien présentés. Le patron vient dire bonjour, c'est appréciable."</p>
+                                    </div>
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #4285F4;">L</div>
+                                            <p class="avis-author-name">Laurent B.</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★★</div>
+                                        <p class="avis-text">"Une côte à l'os irlandaise fondante et grillée juste comme il faut. Accompagnée de frites fraîches et d'une sauce béarnaise maison. Amateur de bonne viande, allez-y les yeux fermés."</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <div class="avis-slide-grid">
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #DB4437;">I</div>
+                                            <p class="avis-author-name">Isabelle W.</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★★</div>
+                                        <p class="avis-text">"Je prends régulièrement leurs lasagnes végétariennes à emporter. Toujours chaudes, délicieuses et super bien fournies en légumes frais. Le personnel au téléphone est souriant."</p>
+                                    </div>
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #F4B400;">C</div>
+                                            <p class="avis-author-name">Cédric L.</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★☆</div>
+                                        <p class="avis-text">"Très bon restaurant. Les scampis à l'ail en entrée étaient parfaits, la sauce appelait à saucer avec le pain ! Un peu bruyant quand la salle est remplie, mais c'est la rançon du succès."</p>
+                                    </div>
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #0F9D58;">V</div>
+                                            <p class="avis-author-name">Valérie et Paul</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★★</div>
+                                        <p class="avis-text">"Le Vitello tonnato est digne de ceux que l'on mange en Italie. Tout est fait maison et la passion du chef se ressent dans les assiettes. Un sans-faute de l'entrée au dessert."</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <div class="avis-slide-grid">
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #4285F4;">K</div>
+                                            <p class="avis-author-name">Kevin T.</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★★</div>
+                                        <p class="avis-text">"Commande de 4 pizzas à emporter un vendredi soir. Prêtes à l'heure pile, bien chaudes, et la réduction de 10% fait plaisir. La pizza 'Stella' avec sa Bresaola est une tuerie."</p>
+                                    </div>
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #DB4437;">A</div>
+                                            <p class="avis-author-name">Amélie J.</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★★</div>
+                                        <p class="avis-text">"Délicieux ! Les croquettes aux crevettes grises faites maison valent vraiment le détour. Belle ambiance, déco soignée, on s'y sent vraiment bien."</p>
+                                    </div>
+                                    <div class="avis-card">
+                                        <div class="avis-header">
+                                            <div class="avis-author-img" style="background-color: #F4B400;">V</div>
+                                            <p class="avis-author-name">Vincent R.</p>
+                                        </div>
+                                        <div class="avis-rating">★★★★★</div>
+                                        <p class="avis-text">"Une vraie perle ! De la viande maturée aux classiques italiens, la carte est variée mais tout est maîtrisé. Gros coup de cœur pour la présentation des plats et le service."</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button class="carousel-btn next-btn" aria-label="Suivant">❯</button>
+                    <div class="carousel-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                        <span class="dot" data-slide="3"></span>
+                        <span class="dot" data-slide="4"></span>
+                    </div>
+                </div>
+
+                <div class="google-link-container animate-on-scroll">
+                    <a href="https://www.google.com/search?q=del+castello+lillois" target="_blank">Voir tous nos avis sur Google</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="infos-pratiques">
+            <div class="container">
+                <h3 class="section-title animate-on-scroll">Infos Pratiques</h3>
+                <div class="infos-grid">
+                    
+                    <div class="info-card animate-on-scroll" style="transition-delay: 0.1s;">
+                        <h4>Heures d'ouverture</h4>
+                        <span class="horaires-disclaimer">
+                            * Les horaires indiqués correspondent à l'ouverture de la cuisine. Le restaurant reste bien entendu ouvert au-delà.
+                        </span>
+                        <ul class="horaires-list">
+                            <li><span class="horaires-day">Lundi</span> <span class="horaires-closed">Fermé</span></li>
+                            <li><span class="horaires-day">Mardi</span> <span class="horaires-closed">Fermé</span></li>
+                            <li><span class="horaires-day">Mercredi</span> <span>12h00 - 14h30 | 18h00 - 21h30</span></li>
+                            <li><span class="horaires-day">Jeudi</span> <span>12h00 - 14h30 | 18h00 - 21h30</span></li>
+                            <li><span class="horaires-day">Vendredi</span> <span>12h00 - 14h30 | 18h00 - 22h00</span></li>
+                            <li><span class="horaires-day">Samedi</span> <span>18h00 - 22h00 (Soir uniquement)</span></li>
+                            <li><span class="horaires-day">Dimanche</span> <span>12h00 - 14h30 | 18h00 - 22h00</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card animate-on-scroll" style="transition-delay: 0.2s;">
+                        <h4>Contact & Accès</h4>
+                        <div class="contact-details">
+                            <p><strong>📍 Adresse :</strong> Grand'Route 462, 1428 Braine-l'Alleud</p>
+                            <p><strong>📞 Téléphone :</strong> 02 385 33 85</p>
+                            <p><strong>✉️ Email :</strong> del.c.lillois@gmail.com</p>
+                        </div>
+                        <div style="text-align: center; margin-top: 30px;">
+                            <a href="tel:+3223853385" class="btn-action" style="padding: 12px 25px; font-size: 1.1em;">
+                                <svg viewBox="0 0 24 24" fill="white" width="20px" height="20px"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                                Appeler pour réserver
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container animate-on-scroll">
+            <img src="photos/logo.png" alt="Del Castello Logo" class="logo-footer">
+            
+            <div class="legal-info">
+                <p><strong>Del Castello SRL</strong></p>
+                <p>Grand'Route 462, 1428 Braine-l'Alleud</p>
+                <p>Numéro d'entreprise / TVA : BE 0471.409.112</p>
+                <p>Email : <a href="mailto:del.c.lillois@gmail.com">del.c.lillois@gmail.com</a> | Tél : 02 385 33 85</p>
+                <p style="margin-top: 15px; font-size: 0.9em; font-style: italic;">Ce site est une vitrine. Les données collectées via email ou téléphone sont utilisées uniquement pour gérer vos commandes et réservations conformément au RGPD.</p>
+            </div>
+
+            <p class="copyright">© 2026 Del Castello SRL. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <a href="tel:+3223853385" class="whatsapp-floating" aria-label="Appeler le restaurant">
+        <svg viewBox="0 0 24 24" fill="white" width="24px" height="24px"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+    </a>
+
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+            elementsToAnimate.forEach(el => {
+                el.classList.add('fade-in'); 
+                observer.observe(el);
+            });
+
+            const carousels = document.querySelectorAll('.carousel-wrapper');
+            
+            carousels.forEach(wrapper => {
+                const track = wrapper.querySelector('.carousel-track');
+                const slides = Array.from(track.children);
+                const nextButton = wrapper.querySelector('.next-btn');
+                const prevButton = wrapper.querySelector('.prev-btn');
+                const dotsNav = wrapper.querySelector('.carousel-dots');
+                const dots = Array.from(dotsNav.children);
+
+                let currentSlideIndex = 0;
+
+                const updateCarousel = (index) => {
+                    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+                }
+
+                nextButton.addEventListener('click', () => {
+                    currentSlideIndex = (currentSlideIndex === slides.length - 1) ? 0 : currentSlideIndex + 1;
+                    updateCarousel(currentSlideIndex);
+                });
+
+                prevButton.addEventListener('click', () => {
+                    currentSlideIndex = (currentSlideIndex === 0) ? slides.length - 1 : currentSlideIndex - 1;
+                    updateCarousel(currentSlideIndex);
+                });
+
+                dotsNav.addEventListener('click', e => {
+                    const targetDot = e.target.closest('.dot');
+                    if (!targetDot) return;
+                    currentSlideIndex = dots.indexOf(targetDot);
+                    updateCarousel(currentSlideIndex);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

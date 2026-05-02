@@ -1,0 +1,63 @@
+backend:
+  name: git-gateway
+  branch: main # ou master selon comment ton dépôt est configuré
+
+media_folder: "photos"
+public_folder: "photos"
+
+collections:
+  - name: "carte"
+    label: "La Carte (Menu complet)"
+    files:
+      - label: "Gestion du Menu"
+        name: "menu"
+        file: "data/menu.json"
+        fields:
+          - label: "Formules (ex: Lunch, Dimanche)"
+            name: "formules"
+            widget: "list"
+            fields:
+              - {label: "Nom", name: "title", widget: "string"}
+              - {label: "Date (ex: semaine du 12 au 16 mai, ou le 18 mai)", name: "date", widget: "string", required: false}
+              - {label: "Prix", name: "price", widget: "string"}
+              - {label: "Description (ex: Jours, infos)", name: "description", widget: "text", required: false}
+              - label: "Les Entrées"
+                name: "entrees"
+                widget: "list"
+                required: false
+                fields:
+                  - {label: "Nom de l'entrée", name: "title", widget: "string"}
+                  - {label: "Description (optionnel)", name: "description", widget: "text", required: false}
+              - label: "Les Plats"
+                name: "plats"
+                widget: "list"
+                required: false
+                fields:
+                  - {label: "Nom du plat", name: "title", widget: "string"}
+                  - {label: "Description (optionnel)", name: "description", widget: "text", required: false}
+              - label: "Les Desserts"
+                name: "desserts"
+                widget: "list"
+                required: false
+                fields:
+                  - {label: "Nom du dessert", name: "title", widget: "string"}
+                  - {label: "Description (optionnel)", name: "description", widget: "text", required: false}
+          - label: "Catégories Principales (ex: Antipasti, Pizzas...)"
+            name: "categories"
+            widget: "list"
+            fields:
+              - {label: "Titre (ex: Antipasti)", name: "title", widget: "string"}
+              - {label: "Identifiant (ex: antipasti - sans espace ni majuscule)", name: "id", widget: "string"}
+              - {label: "Note en bas de catégorie (optionnel)", name: "note", widget: "text", required: false}
+              - label: "Sous-catégories"
+                name: "subcategories"
+                widget: "list"
+                fields:
+                  - {label: "Titre de la sous-catégorie (laisser vide si aucune)", name: "title", widget: "string", required: false}
+                  - label: "Plats"
+                    name: "items"
+                    widget: "list"
+                    fields:
+                      - {label: "Nom", name: "title", widget: "string"}
+                      - {label: "Prix", name: "price", widget: "string"}
+                      - {label: "Description", name: "description", widget: "text", required: false}

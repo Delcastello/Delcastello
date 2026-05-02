@@ -4,34 +4,9 @@
       "title": "Menu Lunch",
       "price": "30 €",
       "description": "<em>Mercredi, jeudi et vendredi midi.</em>",
-      "entrees": [
-        {
-          "title": "Tartare de saumon"
-        },
-        {
-          "title": "Os à moelle"
-        }
-      ],
-      "plats": [
-        {
-          "title": "tranche de jambon grillé"
-        },
-        {
-          "title": "dos de saumon sur peau"
-        }
-      ],
-      "desserts": [
-        {
-          "title": "nougat glacé"
-        },
-        {
-          "title": "thé/ café"
-        },
-        {
-          "title": "Mousse au chocolat ",
-          "description": "de la mousse avec du chocolat"
-        }
-      ],
+      "entrees": [],
+      "plats": [],
+      "desserts": [],
       "date": "semaine du 12 au 16 mai"
     },
     {

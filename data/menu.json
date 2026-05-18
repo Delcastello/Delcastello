@@ -4,10 +4,34 @@
       "title": "Menu Lunch",
       "price": "30 €",
       "description": "<em>Mercredi, jeudi et vendredi midi.</em>",
-      "entrees": [],
-      "plats": [],
-      "desserts": [],
-      "date": ""
+      "entrees": [
+        {
+          "title": "Carpaccio de saumon sauce aigrelette au poivre de Cayenne",
+          "description": "OU"
+        },
+        {
+          "title": "Foie gras et son confit d’oignon, pain brioché"
+        }
+      ],
+      "plats": [
+        {
+          "title": "Entrecôte minute, pommes frites, sauce au choix",
+          "description": "OU"
+        },
+        {
+          "title": "Pâtes au saumon et jeunes pousses d’épinard"
+        }
+      ],
+      "desserts": [
+        {
+          "title": "Île flottante au caramel beurre salé",
+          "description": "OU"
+        },
+        {
+          "title": "Thé ou Café"
+        }
+      ],
+      "date": "Semaine du 20 au 22 mai"
     },
     {
       "title": "Menu du Dimanche",

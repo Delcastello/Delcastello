@@ -37,9 +37,31 @@
       "title": "Menu du Dimanche",
       "price": "48 €",
       "description": "<em>Le dimanche, midi et soir.</em>",
-      "entrees": [],
-      "plats": [],
-      "desserts": []
+      "entrees": [
+        {
+          "title": "Calamars à la Romaine Sauce Tartare"
+        },
+        {
+          "title": "Vitello Tonnato"
+        }
+      ],
+      "plats": [
+        {
+          "title": "Sole sauce Homardine"
+        },
+        {
+          "title": "Filet pur sauce au Poivre Jack Daniel’s"
+        }
+      ],
+      "desserts": [
+        {
+          "title": "Trio de sorbets"
+        },
+        {
+          "title": "Thé / Café"
+        }
+      ],
+      "date": "Le 24 mai"
     }
   ],
   "categories": [

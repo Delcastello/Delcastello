@@ -6,32 +6,32 @@
       "description": "<em>Mercredi, jeudi et vendredi midi.</em>",
       "entrees": [
         {
-          "title": "Carpaccio de saumon sauce aigrelette au poivre de Cayenne",
+          "title": "Tartare de fruits de mer",
           "description": ""
         },
         {
-          "title": "Foie gras et son confit d’oignon, pain brioché"
+          "title": "Tomate Mozzarella"
         }
       ],
       "plats": [
         {
-          "title": "Entrecôte minute, pommes frites, sauce au choix",
+          "title": "Salade César",
           "description": ""
         },
         {
-          "title": "Pâtes au saumon et jeunes pousses d’épinard"
+          "title": "Filet de dorade"
         }
       ],
       "desserts": [
         {
-          "title": "Île flottante au caramel beurre salé",
+          "title": "Duo de sorbets",
           "description": ""
         },
         {
           "title": "Thé ou Café"
         }
       ],
-      "date": "Semaine du 20 au 22 mai"
+      "date": "Semaine du 27 au 29 mai"
     },
     {
       "title": "Menu du Dimanche",

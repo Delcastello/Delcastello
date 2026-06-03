@@ -6,32 +6,32 @@
       "description": "<em>Mercredi, jeudi et vendredi midi.</em>",
       "entrees": [
         {
-          "title": "Tartare de fruits de mer",
+          "title": "Vitello Tonnato",
           "description": ""
         },
         {
-          "title": "Tomate Mozzarella"
+          "title": "Croquettes au choix"
         }
       ],
       "plats": [
         {
-          "title": "Salade César",
+          "title": "Pâtes à la Norma",
           "description": ""
         },
         {
-          "title": "Filet de dorade"
+          "title": "Filet de Bar, purée et légumes chauds"
         }
       ],
       "desserts": [
         {
-          "title": "Duo de sorbets",
+          "title": "Nougat glacé",
           "description": ""
         },
         {
           "title": "Thé ou Café"
         }
       ],
-      "date": "Semaine du 27 au 29 mai"
+      "date": "Semaine du 3 au 5 juin"
     },
     {
       "title": "Menu du Dimanche",

@@ -6,7 +6,7 @@
       "description": "<em>Mercredi, jeudi et vendredi midi.</em>",
       "entrees": [
         {
-          "title": "Vitello Tonnato",
+          "title": "Tartare de tomates aux crevettes grises",
           "description": ""
         },
         {
@@ -15,23 +15,23 @@
       ],
       "plats": [
         {
-          "title": "Pâtes à la Norma",
+          "title": "Tartare de Bœuf Aller-retour",
           "description": ""
         },
         {
-          "title": "Filet de Bar, purée et légumes chauds"
+          "title": "Filet de dorade sauce bisquée"
         }
       ],
       "desserts": [
         {
-          "title": "Nougat glacé",
+          "title": "Crème brulée",
           "description": ""
         },
         {
           "title": "Thé ou Café"
         }
       ],
-      "date": "Semaine du 3 au 5 juin"
+      "date": "Semaine du 10 au 12 juin"
     },
     {
       "title": "Menu du Dimanche",

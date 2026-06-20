@@ -56,7 +56,11 @@
       "desserts": [
         {
           "title": "Nougat glacé à la mousse au chocolat et spéculoos et son coulis de fruits rouge",
-          "description": "Mise en bouche et Thé / Café offerts"
+          "description": ""
+        },
+        {
+          "title": "Thé / Café ",
+          "description": "Mise en bouche offertes"
         }
       ],
       "date": "21 Juin"

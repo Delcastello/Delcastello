@@ -34,32 +34,32 @@
       "date": "Les 17 et 19 juin, complet le 18 juin"
     },
     {
-      "title": "Menu de la Fête des Papas",
-      "price": "65 €",
-      "description": "<em>Les Vendredi et Samedi soir et Dimanche midi et soir.</em>",
+      "title": "Menu du dimanche",
+      "price": "48 €",
+      "description": "<em>Le Dimanche midi et soir.</em>",
       "entrees": [
         {
-          "title": "Œuf parfait, Crumble de jambon de Parme"
+          "title": "Carpaccio à la truffe"
         },
         {
-          "title": "Roulade de bœuf Holstein farcie au Mascarpone et truffe"
+          "title": "Duo de melon au Porto et jambon de Parme"
         }
       ],
       "plats": [
         {
-          "title": "Filet pur Rossini et ses légumes de saison"
+          "title": "Cuberoll irlandais sauce béarnaise ou poivre accompagné de sa salade et ses frites"
         },
         {
-          "title": "Filet de sole à l’Ostendaise, écrasé de pommes de terre"
+          "title": "Salade de scampis et saumon"
         }
       ],
       "desserts": [
         {
-          "title": "Sabayon au Cointreau sur un lit de mousse au chocolat",
+          "title": "Nougat glacé à la mousse au chocolat et spéculoos et son coulis de fruits rouge",
           "description": "Mise en bouche et Thé / Café offerts"
         }
       ],
-      "date": "Du 12 au 14 juin"
+      "date": "21 Juin"
     }
   ],
   "categories": [

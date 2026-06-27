@@ -39,23 +39,23 @@
       "description": "<em>Le Dimanche midi et soir.</em>",
       "entrees": [
         {
-          "title": "Carpaccio à la truffe"
+          "title": "Vitello Tonnato"
         },
         {
-          "title": "Duo de melon au Porto et jambon de Parme"
+          "title": "Saumon fumé et sa garniture"
         }
       ],
       "plats": [
         {
-          "title": "Cuberoll irlandais sauce béarnaise ou poivre accompagné de sa salade et ses frites"
+          "title": "Cuberoll irlandais sauce au choix accompagné de sa salade et ses frites"
         },
         {
-          "title": "Salade de scampis et saumon"
+          "title": "Filet de bar grillé, salade de pommes de terre"
         }
       ],
       "desserts": [
         {
-          "title": "Nougat glacé à la mousse au chocolat et spéculoos et son coulis de fruits rouge",
+          "title": "Nougat glacé et son coulis de fruits rouges",
           "description": ""
         },
         {
@@ -63,7 +63,7 @@
           "description": "Mise en bouche offerte"
         }
       ],
-      "date": "21 Juin"
+      "date": "28 Juin"
     }
   ],
   "categories": [

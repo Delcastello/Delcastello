@@ -39,23 +39,23 @@
       "description": "<em>Le Dimanche midi et soir.</em>",
       "entrees": [
         {
-          "title": "Vitello Tonnato"
+          "title": "Mini tartare de bœuf italien"
         },
         {
-          "title": "Saumon fumé et sa garniture"
+          "title": "Scampis au choix"
         }
       ],
       "plats": [
         {
-          "title": "Cuberoll irlandais sauce au choix accompagné de sa salade et ses frites"
+          "title": "Filet pur Rossini, sa garniture et ses frites"
         },
         {
-          "title": "Filet de bar grillé, salade de pommes de terre"
+          "title": "Sole Meunière, sa garniture et ses frites"
         }
       ],
       "desserts": [
         {
-          "title": "Nougat glacé et son coulis de fruits rouges",
+          "title": "Tiramisu Speculoos",
           "description": ""
         },
         {
@@ -63,7 +63,7 @@
           "description": "Mise en bouche offerte"
         }
       ],
-      "date": "28 Juin"
+      "date": "12 Juillet"
     }
   ],
   "categories": [

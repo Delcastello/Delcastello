@@ -39,23 +39,23 @@
       "description": "<em>Le Dimanche midi et soir.</em>",
       "entrees": [
         {
-          "title": "Mini tartare de bœuf italien"
+          "title": "Carpaccio de magret fumé"
         },
         {
-          "title": "Scampis au choix"
+          "title": "Scampis au choix (à l’ail ou diable)"
         }
       ],
       "plats": [
         {
-          "title": "Filet pur Rossini, sa garniture et ses frites"
+          "title": "Ballottine de poulet jaune sauce champignons des bois"
         },
         {
-          "title": "Sole Meunière, sa garniture et ses frites"
+          "title": "Cuberoll Irlandais sauce béarnaise"
         }
       ],
       "desserts": [
         {
-          "title": "Tiramisu Speculoos",
+          "title": "Dame blanche",
           "description": ""
         },
         {
@@ -63,7 +63,7 @@
           "description": "Mise en bouche offerte"
         }
       ],
-      "date": "12 Juillet"
+      "date": "19 Juillet"
     }
   ],
   "categories": [

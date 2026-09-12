@@ -39,31 +39,27 @@
       "description": "<em>Le Dimanche midi et soir.</em>",
       "entrees": [
         {
-          "title": "Duo de Carpaccio, canard et boeuf"
+          "title": "Duo de croquettes « Maison »"
         },
         {
-          "title": "Duo de croquettes Maison"
+          "title": "Carpaccio de canard fumé, pickles de légumes"
         }
       ],
       "plats": [
         {
-          "title": "Filet pur Rossini et son accompagnement"
+          "title": "Cuberoll irlandais, sauce poivre rose ou béarnaise"
         },
         {
-          "title": "Pâtes fraîches au homard"
+          "title": "Raviolis de homard, sauce bisque de crustacés"
         }
       ],
       "desserts": [
         {
-          "title": "Dame blanche",
+          "title": "Moelleux au chocolat",
           "description": ""
-        },
-        {
-          "title": "Nougat et son coulis de fruits rouges",
-          "description": "Mise en bouche offerte"
         }
       ],
-      "date": "06 Septembre"
+      "date": "13 Septembre"
     }
   ],
   "categories": [
